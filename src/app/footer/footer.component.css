@@ -1,0 +1,7 @@
+.social__button {
+    @apply relative block w-[30px] h-[30px] sm:w-[40px] sm:h-[40px] text-xl sm:text-3xl;
+}
+
+.icon--absolute--centered {
+    @apply absolute -translate-x-1/2 -translate-y-1/2 w-fit h-fit top-1/2 left-1/2;
+}
