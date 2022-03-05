@@ -1,0 +1,42 @@
+.menu__button {
+  @apply sm:relative block w-20 h-12 text-center border-neutral-50 text-neutral-50;
+}
+
+.menu__button fa-icon {
+  @apply sm:absolute sm:text-2xl sm:-translate-x-1/2 sm:-translate-y-1/2 sm:top-1/2 sm:left-1/2 pointer-events-none;
+}
+
+.menu__button p {
+  @apply font-medium pointer-events-none sm:hidden;
+}
+
+.menu__button--activated {
+  @apply !bg-indigo-300 border-b-2 border-b-amber-800 text-amber-800;
+}
+
+@media screen and (min-width: 640px) {
+
+  .menu__button--activated {
+    @apply flex flex-col justify-center;
+  }
+  
+  .menu__button--activated fa-icon {
+    @apply static text-lg -translate-x-0 -translate-y-0 top-0 left-0;
+  }
+  
+  .menu__button--activated p {
+    @apply block;
+  }
+
+  .menu__button:hover {
+    @apply flex flex-col justify-center bg-indigo-500;
+  }
+
+  .menu__button:hover fa-icon {
+    @apply static text-lg -translate-x-0 -translate-y-0 top-0 left-0;
+  }
+
+  .menu__button:hover p {
+    @apply block;
+  }
+}
