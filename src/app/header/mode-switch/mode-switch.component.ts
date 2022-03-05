@@ -9,43 +9,32 @@ import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 })
 export class ModeSwitchComponent implements OnInit {
 
-  private _sunIcon = faSun;
-  private _moonIcon = faMoon;
-  private _colorMode: string;
+  private _switchIcon: any;
 
   constructor() { }
 
   ngOnInit(): void {
-    this._colorMode = 'day';
+    document.documentElement.classList.add('dark');
+    document.getElementsByTagName('nav')[0].classList.add('dark');
+    localStorage.setItem('theme', 'dark');
+    this._switchIcon = faSun;
   }
 
-  get moonIcon(): any {
-    return this._moonIcon;
+  get switchIcon(): any {
+    return this._switchIcon;
   }
 
-  get sunIcon(): any {
-    return this._sunIcon;
-  }
-
-  get colorMode(): string {
-    return this._colorMode;
-  }
-
-  toggleMode(event: any): void {
-    if(!event.target.classList.contains('day')) {
-      event.target.classList.remove('night');
-      event.target.classList.remove('text-indigo-900');
-      event.target.classList.add('day');
-      event.target.classList.add('text-orange-400');
-      this._colorMode = 'day';
+  toggleMode(): void {
+    const currentTheme = localStorage.getItem('theme');
+    const darkModeActivated = (currentTheme !== 'dark');
+    this._switchIcon = darkModeActivated ? faSun : faMoon;
+    localStorage.setItem('theme', darkModeActivated ? 'dark' : '');
+    if(darkModeActivated) {
+      document.documentElement.classList.add('dark');
+      document.getElementsByTagName('nav')[0].classList.add('dark');
     } else {
-      event.target.classList.remove('day');
-      event.target.classList.remove('text-orange-400');
-      event.target.classList.add('night');
-      event.target.classList.add('text-indigo-900');
-      this._colorMode = 'night';
+      document.documentElement.classList.remove('dark');
+      document.getElementsByTagName('nav')[0].classList.remove('dark');
     }
-    console.log(this.colorMode);
   }
-
 }
