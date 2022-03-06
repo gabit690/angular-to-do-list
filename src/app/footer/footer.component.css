@@ -1,5 +1,5 @@
 .social__button {
-    @apply relative block w-[30px] h-[30px] sm:w-[40px] sm:h-[40px] text-xl sm:text-3xl;
+    @apply relative block w-[30px] h-[30px] sm:w-[35px] sm:h-[35px] text-xl sm:text-2xl;
 }
 
 .icon--absolute--centered {

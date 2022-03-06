@@ -11,10 +11,10 @@ import { ModeSwitchComponent } from './header/mode-switch/mode-switch.component'
 import { FooterComponent } from './footer/footer.component';
 
 import { Route, RouterModule } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
+import { NewTaskComponent } from './pages/new-task/new-task.component';
 
 const routes: Route[] = [
-  {path:'', component: HomeComponent}
+  {path:'', component: NewTaskComponent}
 ];
 
 @NgModule({
@@ -23,8 +23,8 @@ const routes: Route[] = [
     HeaderComponent,
     MenuComponent,
     ModeSwitchComponent,
+    NewTaskComponent,
     FooterComponent,
-    HomeComponent,
   ],
   imports: [
     BrowserModule,
