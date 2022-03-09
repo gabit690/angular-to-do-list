@@ -14,10 +14,10 @@ export class ModeSwitchComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    document.documentElement.classList.add('dark');
-    document.getElementsByTagName('nav')[0].classList.add('dark');
-    localStorage.setItem('theme', 'dark');
-    this._switchIcon = faSun;
+    const theme = localStorage.getItem('theme');
+    this._switchIcon = (theme === 'dark') ? faSun : faMoon;
+    document.documentElement.classList.add(theme!);
+    document.getElementsByTagName('nav')[0].classList.add(theme!);
   }
 
   get switchIcon(): any {
@@ -25,16 +25,14 @@ export class ModeSwitchComponent implements OnInit {
   }
 
   toggleMode(): void {
-    const currentTheme = localStorage.getItem('theme');
-    const darkModeActivated = (currentTheme !== 'dark');
+    const previousTheme = localStorage.getItem('theme')!;
+    const darkModeActivated = (previousTheme !== 'dark');
     this._switchIcon = darkModeActivated ? faSun : faMoon;
-    localStorage.setItem('theme', darkModeActivated ? 'dark' : '');
-    if(darkModeActivated) {
-      document.documentElement.classList.add('dark');
-      document.getElementsByTagName('nav')[0].classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      document.getElementsByTagName('nav')[0].classList.remove('dark');
-    }
+    const newTheme = darkModeActivated ? 'dark' : 'light';
+    localStorage.setItem('theme', newTheme);
+    document.documentElement.classList.add(newTheme);
+    document.getElementsByTagName('nav')[0].classList.add(newTheme);
+    document.documentElement.classList.remove(previousTheme);
+    document.getElementsByTagName('nav')[0].classList.remove(previousTheme);
   }
 }

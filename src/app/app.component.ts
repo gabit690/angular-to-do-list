@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 
 @Component({
@@ -6,7 +6,18 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
   title = 'to-do-list';
+
+  ngOnInit(): void {
+    const theme = localStorage.getItem('theme');
+    if (!theme) {
+      localStorage.setItem('theme', 'dark');
+      console.log('FIRST');
+    } else {
+      console.log('APP ALREADY INITIALIZED');
+    }
+  }
 
 }

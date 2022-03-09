@@ -12,9 +12,11 @@ import { FooterComponent } from './footer/footer.component';
 
 import { Route, RouterModule } from '@angular/router';
 import { TaskComponent } from './pages/task/task.component';
+import { TasksListComponent } from './pages/tasks-list/tasks-list.component';
 
 const routes: Route[] = [
-  {path:'', component: TaskComponent}
+  {path:'', component: TaskComponent},
+  {path:'tasks', component: TasksListComponent}
 ];
 
 @NgModule({
@@ -24,6 +26,7 @@ const routes: Route[] = [
     MenuComponent,
     ModeSwitchComponent,
     TaskComponent,
+    TasksListComponent,
     FooterComponent,
   ],
   imports: [

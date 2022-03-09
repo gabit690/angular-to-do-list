@@ -1,25 +1,25 @@
 export class Task {
 
-  private _id: number;
-  private _detail: string;
-  private _priority: string;
+  private id: number;
+  private detail: string;
+  private priority: string;
 
   constructor(id: number, detail: string, priority: string) {
-    this._id = id;
-    this._detail = detail;
-    this._priority = priority;
+    this.id = id;
+    this.detail = detail;
+    this.priority = priority;
   }
 
-  get id(): number {
-    return this._id;
+  getId(): number {
+    return this.id;
   }
 
-  get detail(): string {
-    return this._detail;
+  getDetail(): string {
+    return this.detail;
   }
 
-  get priority(): string {
-    return this._priority;
+  getPriority(): string {
+    return this.priority;
   }
 
 }

@@ -10,11 +10,8 @@ export class PersistenceService {
 
   save(task: string, level: string): void {
     const tasksSaved: any = localStorage.getItem('tasks');
-    const tasksList: any[] = tasksSaved ? JSON.parse(tasksSaved) : [];
-    const newTask = {
-      task: task.toLowerCase().trim(),
-      level: level
-    }
+    const tasksList: object[] = tasksSaved ? JSON.parse(tasksSaved) : [];
+    const newTask = new Task(tasksList.length + 1, task.toLowerCase().trim(), level);
     tasksList.push(newTask);
     localStorage.setItem('tasks', JSON.stringify(tasksList));
   };

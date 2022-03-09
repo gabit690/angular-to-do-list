@@ -19,8 +19,10 @@ export class MenuComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
-
+    if (window.location.pathname == '/') {
+      document.getElementById(this.activatedButton)?.classList.add('menu__button--activated');
+    } 
+    // It works when charge first time the page.
   }
 
   get plusIcon(): any {
