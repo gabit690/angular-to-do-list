@@ -13,10 +13,13 @@ import { FooterComponent } from './footer/footer.component';
 import { Route, RouterModule } from '@angular/router';
 import { TaskComponent } from './pages/task/task.component';
 import { TasksListComponent } from './pages/tasks-list/tasks-list.component';
+import { Error404Component } from './pages/error404/error404.component';
+
 
 const routes: Route[] = [
   {path:'', component: TaskComponent},
-  {path:'tasks', component: TasksListComponent}
+  {path:'tasks', component: TasksListComponent},
+  {path:'**', component: Error404Component}
 ];
 
 @NgModule({
@@ -27,6 +30,7 @@ const routes: Route[] = [
     ModeSwitchComponent,
     TaskComponent,
     TasksListComponent,
+    Error404Component,
     FooterComponent,
   ],
   imports: [
