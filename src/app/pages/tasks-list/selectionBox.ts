@@ -21,7 +21,7 @@ const createSelectionBox: any = (): any => {
     selectionBox.classList.add(...boxClasses);
     selectionBox.setAttribute('id', 'actionBox');
     const boxMessage = document.createElement('p');
-    boxMessage.innerText = "What you want to do with your selection?";
+    boxMessage.innerText = "What do you want to do with your selection?";
     selectionBox.appendChild(boxMessage);
     return selectionBox;
 }

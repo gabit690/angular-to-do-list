@@ -25,14 +25,23 @@ export class ModeSwitchComponent implements OnInit {
   }
 
   toggleMode(): void {
-    const previousTheme = localStorage.getItem('theme')!;
-    const darkModeActivated = (previousTheme !== 'dark');
-    this._switchIcon = darkModeActivated ? faSun : faMoon;
-    const newTheme = darkModeActivated ? 'dark' : 'light';
-    localStorage.setItem('theme', newTheme);
-    document.documentElement.classList.add(newTheme);
-    document.getElementsByTagName('nav')[0].classList.add(newTheme);
-    document.documentElement.classList.remove(previousTheme);
-    document.getElementsByTagName('nav')[0].classList.remove(previousTheme);
+    const previousTheme = localStorage.getItem('theme');
+    if (previousTheme) {
+      const darkModeActivated = (previousTheme !== 'dark');
+      this._switchIcon = darkModeActivated ? faSun : faMoon;
+      const newTheme = darkModeActivated ? 'dark' : 'light';
+      localStorage.setItem('theme', newTheme);
+      document.documentElement.classList.add(newTheme);
+      document.getElementsByTagName('nav')[0].classList.add(newTheme);
+      document.documentElement.classList.remove(previousTheme);
+      document.getElementsByTagName('nav')[0].classList.remove(previousTheme);
+    } else {
+      const darkModeActivated = document.documentElement.classList.contains('dark');
+      localStorage.setItem('theme', darkModeActivated ? 'light' : 'dark');
+      document.documentElement.classList.remove( darkModeActivated ? 'dark' : 'light');
+      document.documentElement.classList.add( darkModeActivated ? 'light' : 'dark');
+      this._switchIcon = darkModeActivated ? faMoon : faSun;
+    }
+
   }
 }

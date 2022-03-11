@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PersistenceService } from 'src/app/persistence.service';
 
-
 @Component({
   selector: 'app-new-task',
   templateUrl: './task.component.html',
@@ -34,7 +33,7 @@ export class TaskComponent implements OnInit {
     const task: string = this._myForm.value.task;
     const level: string = this._myForm.value.level;
     this.persistence.save(task, level);
-    alert('Valid task');
+    alert('New task added.');
     this._myForm.reset({
       task: '',
       level: 'low'

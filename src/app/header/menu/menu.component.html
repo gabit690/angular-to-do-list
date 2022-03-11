@@ -1,13 +1,13 @@
-<nav>
-    <ul class="flex">
+<nav class="h-full">
+    <ul class="flex h-full">
         <li>
-            <a id="new" [routerLink]="['/']" class="border-l-2 border-r-[1px] menu__button menu__button--activated">
+            <a id="add" [routerLink]="['/']" class="border-l-2 border-r-[1px] menu__button" (click)="selected($event)">
                 <fa-icon [icon]="plusIcon"></fa-icon>
                 <p>add</p>
             </a>
         </li>
         <li>
-            <a id="list" [routerLink]="['/tasks']" class="border-l-[1px] border-r-2 menu__button">
+            <a id="list" [routerLink]="['/tasks']" class="border-l-[1px] border-r-2 menu__button" (click)="selected($event)">
                 <fa-icon [icon]="listIcon"></fa-icon>
                 <p>list</p>
             </a>

@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "post": "postcss ./src/styles.css --output ./build/styles.css",
+    "post": "postcss ./src/styles.css --output ./src/styles.css",
     "postw": "postcss ./src/styles.css --output ./build/styles.css --watch"
   },
   "private": true,

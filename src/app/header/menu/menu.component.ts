@@ -12,17 +12,27 @@ const isActivated = (button: any, activatedId: string): boolean => {
 })
 export class MenuComponent implements OnInit {
 
-  private activatedButton = 'new';
+  private activatedButton = '';
   private _plusIcon = faPlus;
   private _listIcon = faListUl;
 
   constructor() { }
 
   ngOnInit(): void {
-    // if (window.location.pathname == '/') {
-    //   document.getElementById(this.activatedButton)?.classList.add('menu__button--activated');
-    // } 
-    // It works when charge first time the page.
+    const path = window.location.pathname;
+    switch (path) {
+      case '/':
+        this.activatedButton = 'add';
+        document.getElementById('add')?.classList.add('menu__button--activated');
+        break;
+      case '/tasks':
+        this.activatedButton = 'list';
+        document.getElementById('list')?.classList.add('menu__button--activated');
+        break;
+      default:
+        this.activatedButton = '';
+        break;
+    }
   }
 
   get plusIcon(): any {
@@ -37,10 +47,11 @@ export class MenuComponent implements OnInit {
     const menuButton = event.target;
     const buttonActivated = isActivated(menuButton, this.activatedButton);
     if (!buttonActivated) {
-      document.getElementById(this.activatedButton)?.classList.toggle('menu__button--activated');
-      menuButton.classList.toggle('menu__button--activated');
+      if (this.activatedButton) {
+        document.getElementById(this.activatedButton)?.classList.remove('menu__button--activated');
+      }
+      menuButton.classList.add('menu__button--activated');
       this.activatedButton = menuButton.id;
     }
   }
-
 }

@@ -1,5 +1,5 @@
 .menu__button {
-  @apply sm:relative block w-20 h-12 sm:h-full text-center border-neutral-50 text-neutral-50;
+  @apply sm:relative block w-20 h-full sm:h-full text-center border-neutral-50 text-neutral-50;
 }
 
 .menu__button fa-icon {

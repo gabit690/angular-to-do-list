@@ -38,7 +38,6 @@ export class UpdateComponent implements OnInit {
     const task: string = this._updateForm.value.task;
     const level: string = this._updateForm.value.level;
     this.persistence.update(this._taskId, task, level);
-    alert('UPDATE task');
     this.router.navigate(['/tasks']);
   }
 

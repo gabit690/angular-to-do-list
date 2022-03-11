@@ -8,15 +8,12 @@ import { createSelectionBox, createActionButton, createCloseButton } from './sel
 @Component({
   selector: 'app-tasks-list',
   templateUrl: './tasks-list.component.html',
-  styleUrls: ['./tasks-list.component.css']
+  styleUrls: []
 })
 export class TasksListComponent implements OnInit {
 
   private _tasks: any[] = [];
   private _tableIcon: any;
-  public op = {
-    action: 'init'
-  };
 
   constructor(private persistence: PersistenceService, private router: Router) {
     this._tasks = persistence.getList();

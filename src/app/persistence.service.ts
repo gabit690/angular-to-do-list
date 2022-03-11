@@ -21,9 +21,9 @@ export class PersistenceService {
     return tasks[id - 1];
   }
 
-  getList(): any[] {
+  getList(): object[] {
     const list: any = localStorage.getItem('tasks');
-    const tasksList: any[] = list ? JSON.parse(list) : [];
+    const tasksList: object[] = list ? JSON.parse(list) : [];
     return tasksList;
   }
 
