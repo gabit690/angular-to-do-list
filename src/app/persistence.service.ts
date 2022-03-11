@@ -16,10 +16,28 @@ export class PersistenceService {
     localStorage.setItem('tasks', JSON.stringify(tasksList));
   };
 
+  getTask(id: number): any {
+    const tasks = JSON.parse(localStorage.getItem('tasks')!);
+    return tasks[id - 1];
+  }
+
   getList(): any[] {
     const list: any = localStorage.getItem('tasks');
     const tasksList: any[] = list ? JSON.parse(list) : [];
     return tasksList;
+  }
+
+  update(id: number, task: string, level: string) {
+    const tasksList: any[] = JSON.parse(localStorage.getItem('tasks')!);
+    tasksList[id - 1].detail = task;
+    tasksList[id - 1].priority = level;
+    localStorage.setItem('tasks', JSON.stringify(tasksList));
+  }
+
+  deleteTask(id: number): void {
+    const tasks = JSON.parse(localStorage.getItem('tasks')!);
+    tasks.splice(id - 1, 1);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
   }
 
 }

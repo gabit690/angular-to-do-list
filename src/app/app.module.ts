@@ -13,12 +13,14 @@ import { FooterComponent } from './footer/footer.component';
 import { Route, RouterModule } from '@angular/router';
 import { TaskComponent } from './pages/task/task.component';
 import { TasksListComponent } from './pages/tasks-list/tasks-list.component';
+import { UpdateComponent } from './pages/update/update.component';
 import { Error404Component } from './pages/error404/error404.component';
 
 
 const routes: Route[] = [
   {path:'', component: TaskComponent},
   {path:'tasks', component: TasksListComponent},
+  {path:'update/:id', component: UpdateComponent},
   {path:'**', component: Error404Component}
 ];
 
@@ -30,8 +32,9 @@ const routes: Route[] = [
     ModeSwitchComponent,
     TaskComponent,
     TasksListComponent,
+    UpdateComponent,
     Error404Component,
-    FooterComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

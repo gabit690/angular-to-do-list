@@ -1,13 +1,13 @@
 <nav>
     <ul class="flex">
         <li>
-            <a id="new" href="" class="border-l-2 border-r-[1px] menu__button menu__button--activated" (click)="selected($event)">
+            <a id="new" [routerLink]="['/']" class="border-l-2 border-r-[1px] menu__button menu__button--activated">
                 <fa-icon [icon]="plusIcon"></fa-icon>
                 <p>add</p>
             </a>
         </li>
         <li>
-            <a id="list" href="/tasks" class="border-l-[1px] border-r-2 menu__button" (click)="selected($event)">
+            <a id="list" [routerLink]="['/tasks']" class="border-l-[1px] border-r-2 menu__button">
                 <fa-icon [icon]="listIcon"></fa-icon>
                 <p>list</p>
             </a>

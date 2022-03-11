@@ -1,5 +1,5 @@
-<form [formGroup]="myForm" (ngSubmit)="handleSubmit()" class="bg-indigo-400 dark:bg-indigo-500 w-1/2 min-w-[300px] mx-auto h-5/6 max-h-80 flex flex-col justify-between rounded-md">
-    <h2 class="mt-2 text-2xl font-extrabold text-center capitalize">new task form</h2>
+<form [formGroup]="updateForm" (ngSubmit)="handleSubmit()" class="bg-indigo-400 dark:bg-indigo-500 w-1/2 min-w-[300px] mx-auto h-5/6 max-h-80 flex flex-col justify-between rounded-md">
+    <h2 class="mt-2 text-2xl font-extrabold text-center capitalize">update task form</h2>
     <fieldset class="relative w-3/4 mx-auto sm:text-xl">
         <input type="text" formControlName="task" id="task" class="w-full px-2 py-1 rounded-md focus:outline-indigo-600" maxlength="20">
         <label for="task" class="absolute left-0 w-full py-1 font-medium -top-[80%]">Task</label>
@@ -12,7 +12,7 @@
             <option value="high">High</option>
         </select>
     </fieldset>
-    <button [disabled]="myForm.invalid" class="w-24 h-10 mx-auto mb-3 font-semibold bg-blue-800 rounded-lg text-neutral-50 drop-shadow-md active:drop-shadow-none disabled:bg-neutral-300">
-        Add
+    <button [disabled]="updateForm.invalid" class="w-24 h-10 mx-auto mb-3 font-semibold bg-blue-800 rounded-lg text-neutral-50 drop-shadow-md active:drop-shadow-none disabled:bg-neutral-300">
+        Update
     </button>
 </form>

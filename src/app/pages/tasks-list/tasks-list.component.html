@@ -6,7 +6,7 @@
             <th>detail</th>
             <th>priority</th>
         </tr>
-        <tr *ngFor="let task of tasks; let i = index" class="text-center border-b border-b-neutral-50">
+        <tr [id]="i + 1" *ngFor="let task of tasks; let i = index" class="text-center border-b cursor-pointer border-b-neutral-50 hover:outline hover:outline-green-400 active:outline-green-400" (click)="showSelectionBox(i + 1)">
             <td class="px-4">{{ task.id }}</td>
             <td class="px-4">{{ task.detail }}</td>
             <td class="px-4">{{ task.priority }}</td>
